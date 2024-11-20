@@ -33,7 +33,7 @@ module Memory(
                 addr <= dataIn1 + dataIn2;
                 labelOut <= labelIn;
                 States <= 1;
-            // States 从0 变成1，进入访存阶段
+            
                 if (op == 1) begin
                     nRD <= 0;
                 end
@@ -76,7 +76,7 @@ module Memory(
             available = 0;
         end
         else begin
-            available = 1; //TODO :maybe bugs not a good implementation
+            available = 1; //
         end
     end
 
