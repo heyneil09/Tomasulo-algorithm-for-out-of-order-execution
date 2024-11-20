@@ -1,13 +1,13 @@
 `timescale 1ns / 1ps
-// 信任提供地址和数据的模块，在内存未完成操作的时候，addr和data不改变
+
 module RAM(
     input clk,
     input [31:0] address,
     input [31:0] writeData, // [31:24], [23:16], [15:8], [7:0]
-    input nRD, // 为0，正常读；为1,输出高组态
-    input nWR, // 为0，写；为1，无操作
+    input nRD,
+    input nWR, 
     output reg [31:0] Dataout,
-    output reg readStatus, // 如果输出有效则为1
+    output reg readStatus, 
     output reg writeStatus,
     output isLastState
     );
@@ -19,8 +19,8 @@ module RAM(
       readStatus = 0;
       writeStatus = 0;
     end
-    reg [7:0] ram [0:60]; //存储器
-    // 设置状态变量
+    reg [7:0] ram [0:60];
+    
     always@( negedge clk) begin
         if (R == 0) begin
             if (nRD == 0) begin
